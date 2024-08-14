@@ -6,3 +6,5 @@ diseño experimental y analisis de datos
 + Semana 1: Introducción
 + Semana 2: Creación de repositorio Github
 + Semana 3: Proxima semana
+
+fr
