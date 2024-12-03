@@ -1,0 +1,58 @@
+# Código Pregunta 15 y 16
+
+set.seed(42) #Para reproducibilidad
+
+n <- 30
+
+altura <- rnorm(n, mean = 170, sd = 10)
+
+peso <- 0.5 * altura + rnorm(n, mean = 0, sd = 5)
+
+shapiro.test(peso)
+
+bartlett.test(peso, altura)
+
+t.test(altura, peso, paired = T)
+
+t.test(altura, peso, var.equal = F)
+
+
+
+# Código pregunta 17 y 18
+
+set.seed (42) #Para reproducibilidad
+
+n <- 30
+
+altura <- rnorm(n, mean = 170, sd = 10)
+
+peso <- 0.5 * altura + rnorm(n, mean = 0, sd = 5)
+
+cor.test(altura, peso)
+
+IN <- lm (altura ~ peso)
+
+IN
+
+summary(IN)
+
+
+#Código preguntas 19 y 20
+
+#Datos de ejemplo
+set.seed(25) #Para reproductibilidad
+
+n <- 40
+
+diam_arboles <- rnorm(n, mean = 20, sd = 5) #Edad de los árboles en años
+diamar
+
+altura_arboles <- 1.5 * diam_arboles + rnorm(n, mean = 0, sd = 3) #Altura en metros, con algo de ruido
+altura
+
+
+#Crear un data frame
+
+datos <- data.frame(diam_arboles, altura_arboles)
+
+view(datos)
