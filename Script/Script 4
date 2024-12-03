@@ -22,7 +22,7 @@ cero <-subset(profepa, profepa$Inspección == 0)
 todos <- subset(profepa, profepa$Inspección !=mean(profepa$Inspección))
  
  
-# Descarga de datos seguros----------------------------------------------------
+# Descarga de datos seguros
  
 library(repmis)
 conjunto <-source_data("https://www.dropbox.com/s/hmsf07bbayxv6m3/cuadro1.csv?dl=1")
@@ -45,21 +45,21 @@ boxplot(SpFH$Diametro ~ SpFH$Especie,
         ylab = "Diámetro",
         col  = "gold")
  
-# Normalidad de datos ----------------------------------------------------------
+# Normalidad de datos
 shapiro.test(SpFH$Diametro)
  
  
-# Homogeneidad de varianza -----------------------------------------------------
+# Homogeneidad de varianza
  
 bartlett.test(SpFH$Diametro, SpFH$Especie)
  
  
-# Pruebas independientes --------------------------------------------------------
+# Pruebas independientes
  
 t.test(SpFH$Diametro ~ SpFH$Especie, var.equal = TRUE)
  
  
-# Prueba de T de una muestra-----------------------------------------------------
+# Prueba de T de una muestra
  
 t.test(conjunto$Diametro, mu = 16.4)
  
