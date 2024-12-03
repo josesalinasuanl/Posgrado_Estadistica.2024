@@ -1,5 +1,5 @@
 # Posgrado Diseño experimental 2024
-diseño experimental y analisis de datos
+Diseño experimental y analisis de datos
 
 ## Contenido
 
