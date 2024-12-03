@@ -1,0 +1,73 @@
+Importar datos
+url <- "https://raw.githubusercontent.com/mgtagle/Met_Est_2024/main/Datos_Madera_MET.csv"
+madera<-read.csv(url,header = T)
+View(madera)
+ 
+Establecer hipotesis
+Ho: Posee diferencias del peso de la madera entre Barreta y Gavia
+H1: No posee diferencias del peso de la madera entre Barreta y Gavia
+ 
+Ho 
+H1 si existe una variación entre el peso de la madera
+gavia <- subset(madera, madera$Especie == "C")
+View(gavia)
+bareta<- subset(madera, madera$Especie == "C")
+View(bareta)
+ 
+Grafico de variables y niveles de factor
+hist(madera$Peso_g ~ madera$Repeticion)
+boxplot(madera$Peso_g ~madera$Especie,
+        xlab = "Niveles de factor",
+        ylab = "peso (gr)",
+        col= "yellow")
+ 
+ 
+Estadistica descriptiva
+tapply(madera$Peso_g,madera$Especie, mean)
+tapply(madera$Peso_g,madera$Especie, var)
+summary(madera)
+ 
+Cuantos factores de nivel exsisten? Aplicar prueba
+Existen dos niveles de factor "especies: barreta y gavia"
+ 
+ 
+La varianza de Gavia es 7 veces mayor
+ 
+Prueba de normalidad Shapiro, se acepta por que el valor de P es mayor 0.05 , es normal, shapiro.test(madera$Peso_g)
+Prueba de normalidad de Shapiro:Si es menor a 0.05 no es normal, se rechaza.
+ 
+ 
+ 
+Prueba de homogenidad de varianzas se rechaza por que el valor de de P es menor 0.05,las varianzas son diferentes
+ 
+bartlett.test(madera$Peso_g ~ madera$Especie)
+ 
+Transformar datos
+madera$Peso_t <- log10(madera$Peso_g + 0.5)
+madera$Peso_t <- log(madera$Peso_g + 0.5)   
+ 
+ejemplo
+madera$peso_t <- log(madera$Peso_g + 1)                     
+ 
+ 
+tapply(madera$Peso_t,madera$Especie, var)
+ 
+ 
+ 
+boxplot(madera$Peso_t ~madera$Especie,
+        xlab = "factor",
+        ylab = "peso",
+        col= "blue")
+ 
+ 
+Aplicar la prueba de t, así como revisar si los supuestos de  y homogeneidad de varianza se cumple
+t.test(madera$Peso_g ~ madera$Especie, var.equal = F)
+ 
+ 
+ 
+ejemplo
+t.test(madera$Peso_g ~ madera$Especie, var.equal = T)
+ 
+hipotesis
+ 
+se rechaza hipotesis nula
