@@ -1,1 +1,42 @@
-Aqupi estarán los Scripts
+#Ejercicios datos de madera MET
+
+url <- "https://raw.githubusercontent.com/mgtagle/Met_Est_2024/main/Datos_Madera_MET.csv"
+madera<-read.csv(url, header = T)
+View (madera)
+
+#Establecer Hipotesis
+#H0 = No existe una diferencia entre el peso de las especies Barreta y Gavia
+#H1 = Existe una diferencia entre el peso de las especies Barreta y Gavia
+
+H.mediaset(madera, madera$Peso_g <= mean(madera$Peso_g)
+
+H1 <- subset(madera$Peso_g >= mean(madera$Peso_g)
+
+#Representacion gráfica de la variable y sus niveles de factor
+
+boxplot(madera$Peso_g ~ madera$Especie,
+        xlab= "factor"
+        ylab= "peso"
+        col=  "plum3"
+    
+?as.factor
+      
+  #Estadistica descriptiva de la variable "Peso_g"
+tapply(madera$Peso_g, madera$Especie, mean)
+tapply(madera$Peso_g, madera$Especie, var)
+
+#¿Cuántos niveles de factor existen?
+levels(madera)
+
+#Aplicar la prueba de T
+shapiro.test(madera$Peso_g)
+
+bartlett.test(madera$Peso_g ~ madera$Especie)
+
+madera$peso_t <- log10(madera$Peso_g + 1)
+tapply(madera$peso_t, madera$Especie, var)
+boxplot(madera$peso_t ~ madera$Especie)
+View(madera)
+t.test(madera$Peso_g ~ madera$Especie, var.equal =F)
+
+#Aceptar H0 ó H1
