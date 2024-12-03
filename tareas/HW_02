@@ -1,0 +1,109 @@
+conjunto <- read.csv("trabajo.csv", header = T)
+View(conjunto)
+#Aplicar la función subset para la variable Altura con:
+
+#datos iguales o menores a la media
+H.media <- subset(conjunto, conjunto$Altura <=mean(conjunto$Altura))
+mean(conjunto$Altura)
+#r:13.94256
+View(H.media)
+#datos menores a 16.5 m
+H.16 <- subset(conjunto, conjunto$Altura < 16.5)
+View(H.16)
+
+#función subset para la variable Vecinos
+
+#número de vecinos iguales o menores a 3
+vecinos.3 <- subset(conjunto, conjunto$Vecinos <= 3)
+
+#número de vecinos mayores a 4 
+vecinos.4 <- subset(conjunto, conjunto$Vecinos > 4)
+
+#función subset para la variable Diametro
+
+#diámetros menores a la media
+DBH.media <- subset(conjunto, conjunto$Diametro < mean (conjunto$Diametro))
+View(DBH.media)
+
+#diámetros mayores a 16
+
+DBH.16 <- subset(conjunto, conjunto$Diametro > 16)
+View(DBH.16)
+
+#función subset para la variable Especie
+
+#solo especie Cedro Rojo
+Especie <- subset(conjunto, conjunto$Especie == "C")
+View(Especie)
+
+#solo la especie Tsuga heterófila y Douglasia verde
+Especie1 <- subset(conjunto, conjunto$Especie1!= "C")
+View(Especie1)
+
+#observaciones que son menores o iguales a 16.9 cm de diámtero
+
+Diametro <- subset(conjunto, conjunto$Diametro <= 16.9)
+View(Diametro)
+
+#hubo 31 observaciones
+
+#determinar cuantas observacions son mayores a 18.5 metros de Altura
+Altura <- subset(conjunto, conjunto$Altura > 18.5)
+view(Altura)
+
+#hubo 2 observaciones
+
+#visualizacion de datos
+
+#Con la función hist generar los histogramas para los objetos creados
+
+Altura, H.media y H.16
+hist(conjunto$Altura, xlab = "Altura", ylab = "Frecuencia", main = "H. Altura",
+     col = "plum3")
+hist(H.media$Altura, xlab = "Altura", ylab = "Frecuencia", main = "H. Altura",
+     col = "plum3")
+hist(H.16$Altura, xlab = "Altura", ylab = "Frecuencia", main = "H. Altura",
+     col = "plum3")
+hist(conjunto$Vecino, xlab = "Altura", ylab = "Frecuencia", main = "H. Altura",
+     col = "plum3")
+hist(vecinos.3$Vecino, xlab = "Altura", ylab = "Frecuencia", main = "H. Altura",
+     col = "plum3")
+hist(vecinos.4$Vecino, xlab = "Altura", ylab = "Frecuencia", main = "H. Altura",
+     col = "plum3")
+hist(conjunto$Diametro, xlab = "Altura", ylab = "Frecuencia", main = "H. Altura",
+     col = "plum3")
+hist(DBH.media$Diametro, xlab = "Altura", ylab = "Frecuencia", main = "H. Altura",
+     col = "plum3")
+hist(DBH.16$Diametro, xlab = "Altura", ylab = "Frecuencia", main = "H. Altura",
+     col = "plum3")
+
+# Estadísticas básicas
+
+# Media (mean) de los objetos (variable y respectivos subsets), así como su desviación estándar (sd)
+
+mean(conjunto$Altura)
+sd(conjunto$Altura)
+
+mean(H.media$Altura)
+sd(H.media$Altura)
+
+mean(H.16$Altura)
+sd(H.16$Altura)
+
+mean(conjunto$Vecinos)
+sd(conjunto$Vecinos)
+
+mean(vecinos.3$Vecinos)
+sd(vecinos.3$Vecinos)
+
+mean(vecinos.4$Vecinos)
+sd(vecinos.4$Vecinos)
+
+mean(conjunto$Diametro)
+sd(conjunto$Diametro)
+
+mean(DBH.media$Diametro)
+sd(DBH.media$Diametro)
+
+mean(DBH.16$Diametro)
+sd(DBH.16$Diametro)
